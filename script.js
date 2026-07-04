@@ -261,9 +261,15 @@ function escapeHtml(text) {
 document.addEventListener('DOMContentLoaded', () => {
     const images = document.querySelectorAll('img');
     images.forEach(img => {
+        // Hide if already broken
+        if (img.complete && img.naturalHeight === 0) {
+            img.style.display = 'none';
+        }
+        
         img.addEventListener('error', function() {
             console.error(`Failed to load image: ${this.src}`);
-            // Could add fallback image here if needed
+            // Hide the broken image icon gracefully
+            this.style.display = 'none';
         });
     });
 });
