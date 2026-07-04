@@ -1,0 +1,83 @@
+[
+  {
+    "full_name": "hoppscotch/hoppscotch",
+    "html_url": "https://github.com/hoppscotch/hoppscotch",
+    "description": "Open-Source API Development Ecosystem • https://hoppscotch.io • Offline, On-Prem & Cloud • Web, Desktop & CLI • Open-Source Alternative to Postman, Insomnia",
+    "language": "TypeScript",
+    "stargazers_count": 79730,
+    "forks_count": 5951,
+    "updated_at": "2026-07-04T16:54:41Z"
+  },
+  {
+    "full_name": "runatlantis/atlantis",
+    "html_url": "https://github.com/runatlantis/atlantis",
+    "description": "Terraform Pull Request Automation",
+    "language": "Go",
+    "stargazers_count": 9175,
+    "forks_count": 1293,
+    "updated_at": "2026-07-04T16:36:06Z"
+  },
+  {
+    "full_name": "kubernetes-sigs/external-dns",
+    "html_url": "https://github.com/kubernetes-sigs/external-dns",
+    "description": "Configure external DNS servers dynamically from Kubernetes resources",
+    "language": "Go",
+    "stargazers_count": 9013,
+    "forks_count": 2885,
+    "updated_at": "2026-07-04T10:16:24Z"
+  },
+  {
+    "full_name": "external-secrets/external-secrets",
+    "html_url": "https://github.com/external-secrets/external-secrets",
+    "description": "External Secrets Operator reads information from a third-party service like AWS Secrets Manager and automatically injects the values as Kubernetes Secrets.",
+    "language": "Go",
+    "stargazers_count": 6725,
+    "forks_count": 1351,
+    "updated_at": "2026-07-04T14:36:57Z"
+  },
+  {
+    "full_name": "grafana/mimir",
+    "html_url": "https://github.com/grafana/mimir",
+    "description": "Grafana Mimir provides horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus.",
+    "language": "Go",
+    "stargazers_count": 5155,
+    "forks_count": 794,
+    "updated_at": "2026-07-04T16:34:48Z"
+  },
+  {
+    "full_name": "Netflix/conductor-community",
+    "html_url": "https://github.com/Netflix/conductor-community",
+    "description": null,
+    "language": "Java",
+    "stargazers_count": 60,
+    "forks_count": 73,
+    "updated_at": "2025-05-09T19:45:50Z"
+  },
+  {
+    "full_name": "kagent-dev/website",
+    "html_url": "https://github.com/kagent-dev/website",
+    "description": "kagent and kMCP website and documentation | Join Discord: https://bit.ly/kagentdiscord",
+    "language": "MDX",
+    "stargazers_count": 18,
+    "forks_count": 60,
+    "updated_at": "2026-07-01T13:57:39Z"
+  },
+  {
+    "full_name": "grupoboticario/terraform-aws-s3",
+    "html_url": "https://github.com/grupoboticario/terraform-aws-s3",
+    "description": "Terraform module to create default S3 bucket with logging and encryption type specific features.",
+    "language": "HCL",
+    "stargazers_count": 1,
+    "forks_count": 0,
+    "updated_at": "2024-03-11T21:31:28Z"
+  },
+  {
+    "full_name": "grupoboticario/terraform-website-s3-cloudfront-route53",
+    "html_url": "https://github.com/grupoboticario/terraform-website-s3-cloudfront-route53",
+    "description": "Terraform scripts to setup an S3 based static website, with a CloudFront distribution and the required Route53 entries.",
+    "language": "HCL",
+    "stargazers_count": 1,
+    "forks_count": 1,
+    "updated_at": "2025-12-12T17:16:52Z"
+  }
+]
