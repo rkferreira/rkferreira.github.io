@@ -4,7 +4,19 @@ const path = require('path');
 const GITHUB_USERNAME = 'rkferreira';
 const GITHUB_API = 'https://api.github.com';
 const OUTPUT_FILE = path.join(__dirname, '../../contributions.json');
+const ASSETS_DIR = path.join(__dirname, '../../assets');
 
+if (!fs.existsSync(ASSETS_DIR)) {
+    fs.mkdirSync(ASSETS_DIR, { recursive: true });
+}
+
+const SVG_URLS = {
+    'github-stats.svg': `https://github-readme-stats.vercel.app/api?username=${GITHUB_USERNAME}&show_icons=true&theme=tokyonight&hide_border=true&count_private=true`,
+    'github-streak.svg': `https://github-readme-streak-stats.herokuapp.com/?user=${GITHUB_USERNAME}&theme=tokyonight&hide_border=true`,
+    'top-langs.svg': `https://github-readme-stats.vercel.app/api/top-langs/?username=${GITHUB_USERNAME}&layout=compact&theme=tokyonight&hide_border=true&langs_count=8`,
+    'activity-graph.svg': `https://github-readme-activity-graph.vercel.app/graph?username=${GITHUB_USERNAME}&theme=tokyo-night&hide_border=true&area=true`,
+    'github-trophies.svg': `https://github-profile-trophy.vercel.app/?username=${GITHUB_USERNAME}&theme=tokyonight&no-frame=true&no-bg=true&column=4&margin-w=15&margin-h=15`
+};
 // Setup headers for authentication and GitHub API requirements
 const headers = {
     'User-Agent': 'rkferreira-portfolio-updater',
@@ -126,6 +138,21 @@ async function updateContributions() {
         // Write to output file
         fs.writeFileSync(OUTPUT_FILE, JSON.stringify(reposData, null, 2));
         console.log(`Successfully updated ${OUTPUT_FILE} with ${reposData.length} repositories.`);
+
+        // Step 4: Fetch external SVGs to cache them
+        console.log('Fetching external SVGs...');
+        for (const [filename, url] of Object.entries(SVG_URLS)) {
+            try {
+                console.log(`Fetching SVG: ${filename}`);
+                // Empty headers so we don't send GitHub auth token to Vercel/Heroku
+                const response = await fetchWithRetry(url, {}, 3, 2000); 
+                const svgText = await response.text();
+                fs.writeFileSync(path.join(ASSETS_DIR, filename), svgText);
+                console.log(`Successfully saved ${filename}`);
+            } catch (error) {
+                console.error(`Failed to fetch ${filename}:`, error.message);
+            }
+        }
 
     } catch (error) {
         console.error('Error updating contributions:', error);
