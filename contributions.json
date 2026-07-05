@@ -4,9 +4,9 @@
     "html_url": "https://github.com/hoppscotch/hoppscotch",
     "description": "Open-Source API Development Ecosystem • https://hoppscotch.io • Offline, On-Prem & Cloud • Web, Desktop & CLI • Open-Source Alternative to Postman, Insomnia",
     "language": "TypeScript",
-    "stargazers_count": 79730,
+    "stargazers_count": 79733,
     "forks_count": 5951,
-    "updated_at": "2026-07-04T16:54:41Z"
+    "updated_at": "2026-07-05T02:09:01Z"
   },
   {
     "full_name": "runatlantis/atlantis",
@@ -22,9 +22,9 @@
     "html_url": "https://github.com/kubernetes-sigs/external-dns",
     "description": "Configure external DNS servers dynamically from Kubernetes resources",
     "language": "Go",
-    "stargazers_count": 9013,
-    "forks_count": 2885,
-    "updated_at": "2026-07-04T10:16:24Z"
+    "stargazers_count": 9015,
+    "forks_count": 2884,
+    "updated_at": "2026-07-05T03:07:14Z"
   },
   {
     "full_name": "external-secrets/external-secrets",
@@ -32,8 +32,8 @@
     "description": "External Secrets Operator reads information from a third-party service like AWS Secrets Manager and automatically injects the values as Kubernetes Secrets.",
     "language": "Go",
     "stargazers_count": 6725,
-    "forks_count": 1351,
-    "updated_at": "2026-07-04T14:36:57Z"
+    "forks_count": 1352,
+    "updated_at": "2026-07-04T22:09:40Z"
   },
   {
     "full_name": "grafana/mimir",
