@@ -264,8 +264,8 @@ section h2 i {
     text-align: center;
 }
 
-/* Trophies Section */
-.trophies {
+/* Contribution Snake Section */
+.contribution-snake {
     display: flex;
     justify-content: center;
     background: var(--bg-tertiary);
@@ -274,7 +274,7 @@ section h2 i {
     border: 1px solid var(--border-color);
 }
 
-.trophies img {
+.contribution-snake img {
     max-width: 100%;
     height: auto;
 }

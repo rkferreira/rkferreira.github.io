@@ -17,6 +17,43 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Generate GitHub stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          path: assets/github-stats.svg
+          options: username=rkferreira&show_icons=true&theme=tokyonight&hide_border=true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate top languages card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          path: assets/top-langs.svg
+          options: username=rkferreira&layout=compact&theme=tokyonight&hide_border=true&langs_count=8
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate streak card
+        uses: DenverCoder1/github-readme-streak-stats@main
+        with:
+          path: assets/github-streak.svg
+          options: user=rkferreira&theme=tokyonight&hide_border=true&disable_animations=true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fetch activity graph
+        run: |
+          mkdir -p assets
+          curl -fsSL \
+            "https://github-readme-activity-graph.vercel.app/graph?username=rkferreira&theme=tokyo-night&hide_border=true&area=true" \
+            -o assets/activity-graph.svg
+
+      - name: Generate contribution snake
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: rkferreira
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          outputs: assets/github-snake.svg?palette=github-dark
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:

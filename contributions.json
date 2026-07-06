@@ -4,9 +4,9 @@
     "html_url": "https://github.com/hoppscotch/hoppscotch",
     "description": "Open-Source API Development Ecosystem • https://hoppscotch.io • Offline, On-Prem & Cloud • Web, Desktop & CLI • Open-Source Alternative to Postman, Insomnia",
     "language": "TypeScript",
-    "stargazers_count": 79748,
+    "stargazers_count": 79749,
     "forks_count": 5953,
-    "updated_at": "2026-07-06T14:26:36Z"
+    "updated_at": "2026-07-06T18:57:14Z"
   },
   {
     "full_name": "runatlantis/atlantis",
@@ -14,7 +14,7 @@
     "description": "Terraform Pull Request Automation",
     "language": "Go",
     "stargazers_count": 9177,
-    "forks_count": 1295,
+    "forks_count": 1297,
     "updated_at": "2026-07-05T18:43:34Z"
   },
   {
@@ -33,7 +33,7 @@
     "language": "Go",
     "stargazers_count": 6726,
     "forks_count": 1354,
-    "updated_at": "2026-07-06T12:26:55Z"
+    "updated_at": "2026-07-06T19:46:24Z"
   },
   {
     "full_name": "grafana/mimir",
@@ -41,7 +41,7 @@
     "description": "Grafana Mimir provides horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus.",
     "language": "Go",
     "stargazers_count": 5157,
-    "forks_count": 795,
+    "forks_count": 796,
     "updated_at": "2026-07-06T11:37:22Z"
   },
   {
