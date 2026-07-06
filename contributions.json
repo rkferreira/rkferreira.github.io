@@ -4,9 +4,9 @@
     "html_url": "https://github.com/hoppscotch/hoppscotch",
     "description": "Open-Source API Development Ecosystem • https://hoppscotch.io • Offline, On-Prem & Cloud • Web, Desktop & CLI • Open-Source Alternative to Postman, Insomnia",
     "language": "TypeScript",
-    "stargazers_count": 79740,
-    "forks_count": 5951,
-    "updated_at": "2026-07-05T20:55:35Z"
+    "stargazers_count": 79748,
+    "forks_count": 5953,
+    "updated_at": "2026-07-06T14:26:36Z"
   },
   {
     "full_name": "runatlantis/atlantis",
@@ -14,7 +14,7 @@
     "description": "Terraform Pull Request Automation",
     "language": "Go",
     "stargazers_count": 9177,
-    "forks_count": 1293,
+    "forks_count": 1295,
     "updated_at": "2026-07-05T18:43:34Z"
   },
   {
@@ -23,26 +23,26 @@
     "description": "Configure external DNS servers dynamically from Kubernetes resources",
     "language": "Go",
     "stargazers_count": 9016,
-    "forks_count": 2884,
-    "updated_at": "2026-07-05T18:53:46Z"
+    "forks_count": 2885,
+    "updated_at": "2026-07-06T08:18:36Z"
   },
   {
     "full_name": "external-secrets/external-secrets",
     "html_url": "https://github.com/external-secrets/external-secrets",
     "description": "External Secrets Operator reads information from a third-party service like AWS Secrets Manager and automatically injects the values as Kubernetes Secrets.",
     "language": "Go",
-    "stargazers_count": 6725,
-    "forks_count": 1352,
-    "updated_at": "2026-07-04T22:09:40Z"
+    "stargazers_count": 6726,
+    "forks_count": 1354,
+    "updated_at": "2026-07-06T12:26:55Z"
   },
   {
     "full_name": "grafana/mimir",
     "html_url": "https://github.com/grafana/mimir",
     "description": "Grafana Mimir provides horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus.",
     "language": "Go",
-    "stargazers_count": 5156,
-    "forks_count": 794,
-    "updated_at": "2026-07-05T17:07:41Z"
+    "stargazers_count": 5157,
+    "forks_count": 795,
+    "updated_at": "2026-07-06T11:37:22Z"
   },
   {
     "full_name": "Netflix/conductor-community",
