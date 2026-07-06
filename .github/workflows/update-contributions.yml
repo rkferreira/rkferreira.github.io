@@ -40,13 +40,12 @@ jobs:
           options: user=rkferreira&theme=tokyonight&hide_border=true&disable_animations=true
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate activity graph
-        uses: maurodesouza/github-readme-activity-graph-action@v1
-        with:
-          username: rkferreira
-          output_path: assets/activity-graph.svg
-          options: theme=tokyo-night&hide_border=true&area=true
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Fetch activity graph
+        run: |
+          mkdir -p assets
+          curl -fsSL \
+            "https://github-readme-activity-graph.vercel.app/graph?username=rkferreira&theme=tokyo-night&hide_border=true&area=true" \
+            -o assets/activity-graph.svg
 
       - name: Generate contribution snake
         uses: Platane/snk/svg-only@v3
