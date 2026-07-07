@@ -4,18 +4,18 @@
     "html_url": "https://github.com/hoppscotch/hoppscotch",
     "description": "Open-Source API Development Ecosystem • https://hoppscotch.io • Offline, On-Prem & Cloud • Web, Desktop & CLI • Open-Source Alternative to Postman, Insomnia",
     "language": "TypeScript",
-    "stargazers_count": 79749,
+    "stargazers_count": 79748,
     "forks_count": 5953,
-    "updated_at": "2026-07-06T18:57:14Z"
+    "updated_at": "2026-07-07T02:44:09Z"
   },
   {
     "full_name": "runatlantis/atlantis",
     "html_url": "https://github.com/runatlantis/atlantis",
     "description": "Terraform Pull Request Automation",
     "language": "Go",
-    "stargazers_count": 9177,
+    "stargazers_count": 9178,
     "forks_count": 1297,
-    "updated_at": "2026-07-05T18:43:34Z"
+    "updated_at": "2026-07-07T02:13:25Z"
   },
   {
     "full_name": "kubernetes-sigs/external-dns",
@@ -40,9 +40,9 @@
     "html_url": "https://github.com/grafana/mimir",
     "description": "Grafana Mimir provides horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus.",
     "language": "Go",
-    "stargazers_count": 5157,
+    "stargazers_count": 5160,
     "forks_count": 796,
-    "updated_at": "2026-07-06T11:37:22Z"
+    "updated_at": "2026-07-07T01:43:21Z"
   },
   {
     "full_name": "Netflix/conductor-community",
