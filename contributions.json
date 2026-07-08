@@ -4,45 +4,45 @@
     "html_url": "https://github.com/hoppscotch/hoppscotch",
     "description": "Open-Source API Development Ecosystem • https://hoppscotch.io • Offline, On-Prem & Cloud • Web, Desktop & CLI • Open-Source Alternative to Postman, Insomnia",
     "language": "TypeScript",
-    "stargazers_count": 79748,
-    "forks_count": 5953,
-    "updated_at": "2026-07-07T02:44:09Z"
+    "stargazers_count": 79758,
+    "forks_count": 5956,
+    "updated_at": "2026-07-08T02:02:24Z"
   },
   {
     "full_name": "runatlantis/atlantis",
     "html_url": "https://github.com/runatlantis/atlantis",
     "description": "Terraform Pull Request Automation",
     "language": "Go",
-    "stargazers_count": 9178,
-    "forks_count": 1297,
-    "updated_at": "2026-07-07T02:13:25Z"
+    "stargazers_count": 9179,
+    "forks_count": 1299,
+    "updated_at": "2026-07-07T18:40:22Z"
   },
   {
     "full_name": "kubernetes-sigs/external-dns",
     "html_url": "https://github.com/kubernetes-sigs/external-dns",
     "description": "Configure external DNS servers dynamically from Kubernetes resources",
     "language": "Go",
-    "stargazers_count": 9016,
+    "stargazers_count": 9015,
     "forks_count": 2885,
-    "updated_at": "2026-07-06T08:18:36Z"
+    "updated_at": "2026-07-07T13:03:54Z"
   },
   {
     "full_name": "external-secrets/external-secrets",
     "html_url": "https://github.com/external-secrets/external-secrets",
     "description": "External Secrets Operator reads information from a third-party service like AWS Secrets Manager and automatically injects the values as Kubernetes Secrets.",
     "language": "Go",
-    "stargazers_count": 6726,
+    "stargazers_count": 6729,
     "forks_count": 1354,
-    "updated_at": "2026-07-06T19:46:24Z"
+    "updated_at": "2026-07-08T02:43:00Z"
   },
   {
     "full_name": "grafana/mimir",
     "html_url": "https://github.com/grafana/mimir",
     "description": "Grafana Mimir provides horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus.",
     "language": "Go",
-    "stargazers_count": 5160,
-    "forks_count": 796,
-    "updated_at": "2026-07-07T01:43:21Z"
+    "stargazers_count": 5164,
+    "forks_count": 797,
+    "updated_at": "2026-07-08T02:06:12Z"
   },
   {
     "full_name": "Netflix/conductor-community",
