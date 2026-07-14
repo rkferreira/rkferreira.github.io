@@ -4,27 +4,27 @@
     "html_url": "https://github.com/hoppscotch/hoppscotch",
     "description": "Open-Source API Development Ecosystem • https://hoppscotch.io • Offline, On-Prem & Cloud • Web, Desktop & CLI • Open-Source Alternative to Postman, Insomnia",
     "language": "TypeScript",
-    "stargazers_count": 79786,
+    "stargazers_count": 79805,
     "forks_count": 5961,
-    "updated_at": "2026-07-13T00:52:23Z"
+    "updated_at": "2026-07-14T02:00:27Z"
   },
   {
     "full_name": "runatlantis/atlantis",
     "html_url": "https://github.com/runatlantis/atlantis",
     "description": "Terraform Pull Request Automation",
     "language": "Go",
-    "stargazers_count": 9183,
+    "stargazers_count": 9184,
     "forks_count": 1301,
-    "updated_at": "2026-07-12T20:54:16Z"
+    "updated_at": "2026-07-14T02:04:47Z"
   },
   {
     "full_name": "kubernetes-sigs/external-dns",
     "html_url": "https://github.com/kubernetes-sigs/external-dns",
     "description": "Configure external DNS servers dynamically from Kubernetes resources",
     "language": "Go",
-    "stargazers_count": 9025,
-    "forks_count": 2891,
-    "updated_at": "2026-07-12T23:22:44Z"
+    "stargazers_count": 9027,
+    "forks_count": 2893,
+    "updated_at": "2026-07-13T20:13:42Z"
   },
   {
     "full_name": "external-secrets/external-secrets",
@@ -32,17 +32,26 @@
     "description": "External Secrets Operator reads information from a third-party service like AWS Secrets Manager and automatically injects the values as Kubernetes Secrets.",
     "language": "Go",
     "stargazers_count": 6731,
-    "forks_count": 1356,
-    "updated_at": "2026-07-12T19:04:21Z"
+    "forks_count": 1361,
+    "updated_at": "2026-07-13T19:45:07Z"
   },
   {
     "full_name": "grafana/mimir",
     "html_url": "https://github.com/grafana/mimir",
     "description": "Grafana Mimir provides horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus.",
     "language": "Go",
-    "stargazers_count": 5170,
+    "stargazers_count": 5171,
     "forks_count": 801,
-    "updated_at": "2026-07-13T01:31:51Z"
+    "updated_at": "2026-07-14T01:41:55Z"
+  },
+  {
+    "full_name": "percona/percona-helm-charts",
+    "html_url": "https://github.com/percona/percona-helm-charts",
+    "description": "Collection of Helm charts for Percona Kubernetes Operators.",
+    "language": "Mustache",
+    "stargazers_count": 165,
+    "forks_count": 208,
+    "updated_at": "2026-07-06T21:41:40Z"
   },
   {
     "full_name": "Netflix/conductor-community",
@@ -59,8 +68,8 @@
     "description": "kagent and kMCP website and documentation | Join Discord: https://bit.ly/kagentdiscord",
     "language": "MDX",
     "stargazers_count": 18,
-    "forks_count": 60,
-    "updated_at": "2026-07-10T13:57:17Z"
+    "forks_count": 59,
+    "updated_at": "2026-07-13T16:01:53Z"
   },
   {
     "full_name": "grupoboticario/terraform-aws-s3",
