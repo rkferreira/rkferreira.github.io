@@ -4,45 +4,45 @@
     "html_url": "https://github.com/hoppscotch/hoppscotch",
     "description": "Open-Source API Development Ecosystem • https://hoppscotch.io • Offline, On-Prem & Cloud • Web, Desktop & CLI • Open-Source Alternative to Postman, Insomnia",
     "language": "TypeScript",
-    "stargazers_count": 79808,
-    "forks_count": 5962,
-    "updated_at": "2026-07-15T01:23:06Z"
+    "stargazers_count": 79809,
+    "forks_count": 5964,
+    "updated_at": "2026-07-16T02:31:55Z"
   },
   {
     "full_name": "runatlantis/atlantis",
     "html_url": "https://github.com/runatlantis/atlantis",
     "description": "Terraform Pull Request Automation",
     "language": "Go",
-    "stargazers_count": 9187,
+    "stargazers_count": 9188,
     "forks_count": 1302,
-    "updated_at": "2026-07-15T00:42:21Z"
+    "updated_at": "2026-07-15T10:37:41Z"
   },
   {
     "full_name": "kubernetes-sigs/external-dns",
     "html_url": "https://github.com/kubernetes-sigs/external-dns",
     "description": "Configure external DNS servers dynamically from Kubernetes resources",
     "language": "Go",
-    "stargazers_count": 9028,
+    "stargazers_count": 9029,
     "forks_count": 2895,
-    "updated_at": "2026-07-15T00:30:34Z"
+    "updated_at": "2026-07-15T16:32:59Z"
   },
   {
     "full_name": "external-secrets/external-secrets",
     "html_url": "https://github.com/external-secrets/external-secrets",
     "description": "External Secrets Operator reads information from a third-party service like AWS Secrets Manager and automatically injects the values as Kubernetes Secrets.",
     "language": "Go",
-    "stargazers_count": 6732,
-    "forks_count": 1362,
-    "updated_at": "2026-07-14T15:45:02Z"
+    "stargazers_count": 6734,
+    "forks_count": 1363,
+    "updated_at": "2026-07-15T19:38:07Z"
   },
   {
     "full_name": "grafana/mimir",
     "html_url": "https://github.com/grafana/mimir",
     "description": "Grafana Mimir provides horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus.",
     "language": "Go",
-    "stargazers_count": 5172,
+    "stargazers_count": 5173,
     "forks_count": 801,
-    "updated_at": "2026-07-15T02:24:10Z"
+    "updated_at": "2026-07-16T00:44:05Z"
   },
   {
     "full_name": "percona/percona-helm-charts",
@@ -69,7 +69,7 @@
     "language": "MDX",
     "stargazers_count": 18,
     "forks_count": 59,
-    "updated_at": "2026-07-14T13:36:02Z"
+    "updated_at": "2026-07-15T17:59:42Z"
   },
   {
     "full_name": "grupoboticario/terraform-aws-s3",
