@@ -2,8 +2,8 @@ name: Update Contributions Cache
 
 on:
   schedule:
-    # Run daily at midnight
-    - cron: '0 0 * * *'
+    # Run Wednesday and Saturday at midnight
+    - cron: '0 0 * * 3,6'
   workflow_dispatch: # Allow manual trigger
 
 permissions:
@@ -18,7 +18,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Generate GitHub stats card
+        id: stats-card
         uses: stats-organization/github-readme-stats-action@v2
+        continue-on-error: true
         with:
           card: stats
           path: assets/github-stats.svg
@@ -26,7 +28,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate top languages card
+        id: top-langs-card
         uses: stats-organization/github-readme-stats-action@v2
+        continue-on-error: true
         with:
           card: top-langs
           path: assets/top-langs.svg
@@ -34,13 +38,17 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate streak card
+        id: streak-card
         uses: DenverCoder1/github-readme-streak-stats@main
+        continue-on-error: true
         with:
           path: assets/github-streak.svg
           options: user=rkferreira&theme=tokyonight&hide_border=true&disable_animations=true
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fetch activity graph
+        id: activity-graph
+        continue-on-error: true
         run: |
           mkdir -p assets
           curl -fsSL \
@@ -48,7 +56,9 @@ jobs:
             -o assets/activity-graph.svg
 
       - name: Generate contribution snake
+        id: snake
         uses: Platane/snk/svg-only@v3
+        continue-on-error: true
         with:
           github_user_name: rkferreira
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -60,9 +70,49 @@ jobs:
           node-version: 24
 
       - name: Run updater script
+        id: updater
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node .github/scripts/update-contributions.js
+
+      - name: Restore failed assets
+        run: |
+          # Restore stats-card if failed or contains error message
+          if [ "${{ steps.stats-card.outcome }}" = "failure" ] || ( [ -f assets/github-stats.svg ] && grep -qi -E "Something went wrong|RESOURCE_LIMITS_EXCEEDED" assets/github-stats.svg ); then
+            echo "GitHub stats card failed or generated an error card. Reverting to current version."
+            git checkout -- assets/github-stats.svg || true
+          fi
+
+          # Restore top-langs-card if failed or contains error message
+          if [ "${{ steps.top-langs-card.outcome }}" = "failure" ] || ( [ -f assets/top-langs.svg ] && grep -qi -E "Something went wrong|RESOURCE_LIMITS_EXCEEDED" assets/top-langs.svg ); then
+            echo "Top languages card failed or generated an error card. Reverting to current version."
+            git checkout -- assets/top-langs.svg || true
+          fi
+
+          # Restore streak-card if failed or contains error message
+          if [ "${{ steps.streak-card.outcome }}" = "failure" ] || ( [ -f assets/github-streak.svg ] && grep -qi -E "Something went wrong|RESOURCE_LIMITS_EXCEEDED" assets/github-streak.svg ); then
+            echo "Streak card failed or generated an error card. Reverting to current version."
+            git checkout -- assets/github-streak.svg || true
+          fi
+
+          # Restore activity-graph if failed or contains error message
+          if [ "${{ steps.activity-graph.outcome }}" = "failure" ] || ( [ -f assets/activity-graph.svg ] && grep -qi -E "Something went wrong|RESOURCE_LIMITS_EXCEEDED" assets/activity-graph.svg ); then
+            echo "Activity graph failed or generated an error card. Reverting to current version."
+            git checkout -- assets/activity-graph.svg || true
+          fi
+
+          # Restore snake if failed
+          if [ "${{ steps.snake.outcome }}" = "failure" ]; then
+            echo "Snake animation failed. Reverting to current version."
+            git checkout -- assets/github-snake.svg || true
+          fi
+
+          # Restore updater if failed
+          if [ "${{ steps.updater.outcome }}" = "failure" ]; then
+            echo "Contributions updater failed. Reverting to current version."
+            git checkout -- contributions.json || true
+          fi
 
       - name: Check for changes
         id: git-check
