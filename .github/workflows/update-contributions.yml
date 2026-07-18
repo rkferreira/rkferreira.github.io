@@ -55,6 +55,15 @@ jobs:
             "https://github-readme-activity-graph.vercel.app/graph?username=rkferreira&theme=tokyo-night&hide_border=true&area=true" \
             -o assets/activity-graph.svg
 
+      - name: Fetch CNCF DevStats card
+        id: cncf-devstats
+        continue-on-error: true
+        run: |
+          mkdir -p assets
+          curl -fsSL \
+            "https://devstats.me/?username=rkferreira&theme=tokyonight&border_color=1a1b27" \
+            -o assets/cncf-devstats.svg
+
       - name: Generate contribution snake
         id: snake
         uses: Platane/snk/svg-only@v3
@@ -100,6 +109,12 @@ jobs:
           if [ "${{ steps.activity-graph.outcome }}" = "failure" ] || ( [ -f assets/activity-graph.svg ] && grep -qi -E "Something went wrong|RESOURCE_LIMITS_EXCEEDED" assets/activity-graph.svg ); then
             echo "Activity graph failed or generated an error card. Reverting to current version."
             git checkout -- assets/activity-graph.svg || true
+          fi
+
+          # Restore cncf-devstats if failed or contains error message
+          if [ "${{ steps.cncf-devstats.outcome }}" = "failure" ] || ( [ -f assets/cncf-devstats.svg ] && grep -qi -E "Something went wrong|RESOURCE_LIMITS_EXCEEDED" assets/cncf-devstats.svg ); then
+            echo "CNCF DevStats card failed or generated an error card. Reverting to current version."
+            git checkout -- assets/cncf-devstats.svg || true
           fi
 
           # Restore snake if failed
