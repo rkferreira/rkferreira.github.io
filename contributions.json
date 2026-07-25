@@ -4,27 +4,27 @@
     "html_url": "https://github.com/hoppscotch/hoppscotch",
     "description": "Open-Source API Development Ecosystem • https://hoppscotch.io • Offline, On-Prem & Cloud • Web, Desktop & CLI • Open-Source Alternative to Postman, Insomnia",
     "language": "TypeScript",
-    "stargazers_count": 79847,
-    "forks_count": 5974,
-    "updated_at": "2026-07-21T21:44:14Z"
+    "stargazers_count": 79887,
+    "forks_count": 5985,
+    "updated_at": "2026-07-25T01:55:09Z"
   },
   {
     "full_name": "runatlantis/atlantis",
     "html_url": "https://github.com/runatlantis/atlantis",
     "description": "Terraform Pull Request Automation",
     "language": "Go",
-    "stargazers_count": 9198,
-    "forks_count": 1303,
-    "updated_at": "2026-07-21T22:42:34Z"
+    "stargazers_count": 9201,
+    "forks_count": 1305,
+    "updated_at": "2026-07-25T00:37:02Z"
   },
   {
     "full_name": "kubernetes-sigs/external-dns",
     "html_url": "https://github.com/kubernetes-sigs/external-dns",
     "description": "Configure external DNS servers dynamically from Kubernetes resources",
     "language": "Go",
-    "stargazers_count": 9035,
-    "forks_count": 2897,
-    "updated_at": "2026-07-22T02:07:51Z"
+    "stargazers_count": 9039,
+    "forks_count": 2901,
+    "updated_at": "2026-07-24T07:44:34Z"
   },
   {
     "full_name": "external-secrets/external-secrets",
@@ -32,17 +32,17 @@
     "description": "External Secrets Operator reads information from a third-party service like AWS Secrets Manager and automatically injects the values as Kubernetes Secrets.",
     "language": "Go",
     "stargazers_count": 6747,
-    "forks_count": 1366,
-    "updated_at": "2026-07-21T17:17:54Z"
+    "forks_count": 1370,
+    "updated_at": "2026-07-24T23:54:20Z"
   },
   {
     "full_name": "grafana/mimir",
     "html_url": "https://github.com/grafana/mimir",
     "description": "Grafana Mimir provides horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus.",
     "language": "Go",
-    "stargazers_count": 5182,
-    "forks_count": 809,
-    "updated_at": "2026-07-22T01:13:11Z"
+    "stargazers_count": 5184,
+    "forks_count": 812,
+    "updated_at": "2026-07-24T20:21:43Z"
   },
   {
     "full_name": "percona/percona-helm-charts",
@@ -51,7 +51,7 @@
     "language": "Mustache",
     "stargazers_count": 165,
     "forks_count": 208,
-    "updated_at": "2026-07-17T11:14:17Z"
+    "updated_at": "2026-07-23T20:00:25Z"
   },
   {
     "full_name": "Netflix/conductor-community",
