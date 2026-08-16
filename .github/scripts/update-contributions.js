@@ -4,6 +4,7 @@ const path = require('path');
 const GITHUB_USERNAME = 'rkferreira';
 const GITHUB_API = 'https://api.github.com';
 const OUTPUT_FILE = path.join(__dirname, '../../contributions.json');
+const OUTPUT_CERTS_FILE = path.join(__dirname, '../../certifications.json');
 
 // Setup headers for authentication and GitHub API requirements
 const headers = {
@@ -133,4 +134,51 @@ async function updateContributions() {
     }
 }
 
-updateContributions();
+async function updateCertifications() {
+    try {
+        console.log('Fetching certifications from Credly API...');
+        const response = await fetch('https://www.credly.com/users/rodkf/badges.json', {
+            headers: {
+                'User-Agent': 'rkferreira-portfolio-updater',
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            const rawData = await response.json();
+            const badges = rawData.data || [];
+            const outputList = badges.map(b => {
+                const tmpl = b.badge_template || {};
+                let issuerName = tmpl.issuer?.summary || (tmpl.issuer?.entities?.[0]?.entity?.name) || 'Credly';
+                if (issuerName.startsWith('issued by ')) {
+                    issuerName = issuerName.substring(10);
+                }
+                return {
+                    id: b.id,
+                    name: tmpl.name,
+                    issuer: issuerName,
+                    issued_at_date: b.issued_at_date,
+                    expires_at_date: b.expires_at_date,
+                    image_url: tmpl.image_url,
+                    badge_url: `https://www.credly.com/badges/${b.id}`
+                };
+            });
+
+            fs.writeFileSync(OUTPUT_CERTS_FILE, JSON.stringify(outputList, null, 2));
+            console.log(`Successfully updated ${OUTPUT_CERTS_FILE} with ${outputList.length} certifications.`);
+        } else {
+            console.warn(`Credly API returned status ${response.status}. Keeping existing certifications.json.`);
+        }
+    } catch (error) {
+        console.error('Error updating certifications:', error.message);
+        // Do not crash main process if Credly API fails
+    }
+}
+
+async function main() {
+    await updateContributions();
+    await updateCertifications();
+}
+
+main();
+

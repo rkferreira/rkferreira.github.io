@@ -126,7 +126,7 @@ jobs:
           # Restore updater if failed
           if [ "${{ steps.updater.outcome }}" = "failure" ]; then
             echo "Contributions updater failed. Reverting to current version."
-            git checkout -- contributions.json || true
+            git checkout -- contributions.json certifications.json || true
           fi
 
       - name: Check for changes
@@ -144,6 +144,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add contributions.json assets/
-          git commit -m "chore: update contributions cache [skip ci]"
+          git add contributions.json certifications.json assets/
+          git commit -m "chore: update contributions & certifications cache [skip ci]"
           git push
