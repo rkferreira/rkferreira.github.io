@@ -70,23 +70,5 @@
     "stargazers_count": 18,
     "forks_count": 62,
     "updated_at": "2026-08-20T15:26:34Z"
-  },
-  {
-    "full_name": "grupoboticario/terraform-aws-s3",
-    "html_url": "https://github.com/grupoboticario/terraform-aws-s3",
-    "description": "Terraform module to create default S3 bucket with logging and encryption type specific features.",
-    "language": "HCL",
-    "stargazers_count": 1,
-    "forks_count": 0,
-    "updated_at": "2024-03-11T21:31:28Z"
-  },
-  {
-    "full_name": "grupoboticario/terraform-website-s3-cloudfront-route53",
-    "html_url": "https://github.com/grupoboticario/terraform-website-s3-cloudfront-route53",
-    "description": "Terraform scripts to setup an S3 based static website, with a CloudFront distribution and the required Route53 entries.",
-    "language": "HCL",
-    "stargazers_count": 1,
-    "forks_count": 1,
-    "updated_at": "2025-12-12T17:16:52Z"
   }
 ]

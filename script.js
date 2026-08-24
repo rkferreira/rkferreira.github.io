@@ -1,6 +1,13 @@
 // GitHub API Configuration
 const GITHUB_USERNAME = 'rkferreira';
 const GITHUB_API = 'https://api.github.com';
+const EXCLUDED_ORGS = ['grupoboticario'];
+
+function isExcludedRepo(repoName) {
+    if (!repoName || typeof repoName !== 'string') return true;
+    const repoOwner = repoName.split('/')[0].toLowerCase();
+    return repoOwner === GITHUB_USERNAME.toLowerCase() || EXCLUDED_ORGS.includes(repoOwner);
+}
 
 // Update last updated date
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,8 +35,9 @@ async function fetchContributions() {
         contributionsInfo.textContent = 'Loading contributions...';
         const response = await fetch('./contributions.json');
         if (response.ok) {
-            const validRepos = await response.json();
-            if (Array.isArray(validRepos)) {
+            const rawRepos = await response.json();
+            if (Array.isArray(rawRepos)) {
+                const validRepos = rawRepos.filter(repo => repo && repo.full_name && !isExcludedRepo(repo.full_name));
                 console.log('Loaded contributions from static contributions.json');
                 renderContributions(validRepos, contributionsInfo, contributionsList, 'static');
                 return;
@@ -51,10 +59,13 @@ async function fetchContributions() {
         const cacheAge = Date.now() - parseInt(cachedTimestamp, 10);
         if (cacheAge < CACHE_TTL) {
             try {
-                const validRepos = JSON.parse(cachedData);
-                console.log('Loaded contributions from valid LocalStorage cache');
-                renderContributions(validRepos, contributionsInfo, contributionsList, 'cache');
-                return;
+                const rawRepos = JSON.parse(cachedData);
+                if (Array.isArray(rawRepos)) {
+                    const validRepos = rawRepos.filter(repo => repo && repo.full_name && !isExcludedRepo(repo.full_name));
+                    console.log('Loaded contributions from valid LocalStorage cache');
+                    renderContributions(validRepos, contributionsInfo, contributionsList, 'cache');
+                    return;
+                }
             } catch (e) {
                 console.error('Failed to parse cached contributions:', e);
             }
@@ -75,16 +86,16 @@ async function fetchContributions() {
         
         if (eventsResponse.ok) {
             const events = await eventsResponse.json();
-            events.forEach(event => {
-                if (event.repo && event.repo.name) {
-                    const repoName = event.repo.name;
-                    const repoOwner = repoName.split('/')[0];
-                    
-                    if (repoOwner.toLowerCase() !== GITHUB_USERNAME.toLowerCase()) {
-                        externalRepos.add(repoName);
+            if (Array.isArray(events)) {
+                events.forEach(event => {
+                    if (event.repo && event.repo.name) {
+                        const repoName = event.repo.name;
+                        if (!isExcludedRepo(repoName)) {
+                            externalRepos.add(repoName);
+                        }
                     }
-                }
-            });
+                });
+            }
         }
         
         // Step 2: Search for all Pull Requests
@@ -100,12 +111,10 @@ async function fetchContributions() {
         if (searchResponse.ok) {
             const searchData = await searchResponse.json();
             
-            if (searchData.items) {
+            if (searchData.items && Array.isArray(searchData.items)) {
                 searchData.items.forEach(pr => {
                     const repoName = pr.repository_url.replace('https://api.github.com/repos/', '');
-                    const repoOwner = repoName.split('/')[0];
-                    
-                    if (repoOwner.toLowerCase() !== GITHUB_USERNAME.toLowerCase()) {
+                    if (!isExcludedRepo(repoName)) {
                         externalRepos.add(repoName);
                     }
                 });
@@ -143,10 +152,10 @@ async function fetchContributions() {
         });
         
         const reposData = await Promise.all(repoPromises);
-        const validRepos = reposData.filter(repo => repo !== null);
+        const validRepos = reposData.filter(repo => repo !== null && repo.full_name && !isExcludedRepo(repo.full_name));
         
         // Sort by stars
-        validRepos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+        validRepos.sort((a, b) => (b.stargazers_count || 0) - (a.stargazers_count || 0));
         
         // Save to LocalStorage cache
         localStorage.setItem(CACHE_KEY, JSON.stringify(validRepos));
@@ -160,10 +169,13 @@ async function fetchContributions() {
         // If live fetching failed but we have ANY cached data (even expired), use it!
         if (cachedData) {
             try {
-                const validRepos = JSON.parse(cachedData);
-                console.log('Loaded contributions from expired LocalStorage cache due to live API failure');
-                renderContributions(validRepos, contributionsInfo, contributionsList, 'expired');
-                return;
+                const rawRepos = JSON.parse(cachedData);
+                if (Array.isArray(rawRepos)) {
+                    const validRepos = rawRepos.filter(repo => repo && repo.full_name && !isExcludedRepo(repo.full_name));
+                    console.log('Loaded contributions from expired LocalStorage cache due to live API failure');
+                    renderContributions(validRepos, contributionsInfo, contributionsList, 'expired');
+                    return;
+                }
             } catch (e) {
                 console.error('Failed to parse expired cache:', e);
             }
