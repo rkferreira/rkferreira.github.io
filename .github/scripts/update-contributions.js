@@ -47,48 +47,82 @@ async function fetchWithRetry(url, options = {}, retries = 3, backoff = 1000) {
     }
 }
 
+const EXCLUDED_ORGS = ['grupoboticario'];
+
+function isExcludedRepo(repoName) {
+    if (!repoName || typeof repoName !== 'string') return true;
+    const repoOwner = repoName.split('/')[0].toLowerCase();
+    return repoOwner === GITHUB_USERNAME.toLowerCase() || EXCLUDED_ORGS.includes(repoOwner);
+}
+
 async function updateContributions() {
     try {
         console.log(`Starting contributions update for user: ${GITHUB_USERNAME}`);
-        const externalRepos = new Set();
+        
+        // Step 0: Load existing contributions to ensure we never remove anyone (except excluded orgs)
+        const reposMap = new Map();
+        if (fs.existsSync(OUTPUT_FILE)) {
+            try {
+                const existingContent = fs.readFileSync(OUTPUT_FILE, 'utf8');
+                const existingList = JSON.parse(existingContent);
+                if (Array.isArray(existingList)) {
+                    for (const repo of existingList) {
+                        if (repo && repo.full_name && !isExcludedRepo(repo.full_name)) {
+                            reposMap.set(repo.full_name.toLowerCase(), repo);
+                        }
+                    }
+                    console.log(`Loaded ${reposMap.size} existing contributions from ${OUTPUT_FILE}.`);
+                }
+            } catch (err) {
+                console.warn('Could not parse existing contributions.json:', err.message);
+            }
+        }
+
+        const externalRepos = new Set(Array.from(reposMap.values()).map(r => r.full_name));
 
         // Step 1: Fetch recent public events
         console.log('Fetching recent public events...');
-        const eventsResponse = await fetchWithRetry(`${GITHUB_API}/users/${GITHUB_USERNAME}/events/public?per_page=100`, { headers });
-        const events = await eventsResponse.json();
-        
-        events.forEach(event => {
-            if (event.repo && event.repo.name) {
-                const repoName = event.repo.name;
-                const repoOwner = repoName.split('/')[0];
-                
-                if (repoOwner.toLowerCase() !== GITHUB_USERNAME.toLowerCase()) {
-                    externalRepos.add(repoName);
-                }
+        try {
+            const eventsResponse = await fetchWithRetry(`${GITHUB_API}/users/${GITHUB_USERNAME}/events/public?per_page=100`, { headers });
+            const events = await eventsResponse.json();
+            
+            if (Array.isArray(events)) {
+                events.forEach(event => {
+                    if (event.repo && event.repo.name) {
+                        const repoName = event.repo.name;
+                        if (!isExcludedRepo(repoName)) {
+                            externalRepos.add(repoName);
+                        }
+                    }
+                });
             }
-        });
-        console.log(`Found ${externalRepos.size} external repositories from recent events.`);
+            console.log(`Found external repositories from recent events. Total candidates: ${externalRepos.size}`);
+        } catch (err) {
+            console.warn('Failed to fetch public events:', err.message);
+        }
 
         // Step 2: Search for all Pull Requests
         console.log('Searching for pull requests...');
-        const searchQuery = `author:${GITHUB_USERNAME} type:pr`;
-        const searchResponse = await fetchWithRetry(
-            `${GITHUB_API}/search/issues?q=${encodeURIComponent(searchQuery)}&sort=updated&per_page=100`,
-            { headers }
-        );
-        const searchData = await searchResponse.json();
-        
-        if (searchData.items) {
-            searchData.items.forEach(pr => {
-                const repoName = pr.repository_url.replace('https://api.github.com/repos/', '');
-                const repoOwner = repoName.split('/')[0];
-                
-                if (repoOwner.toLowerCase() !== GITHUB_USERNAME.toLowerCase()) {
-                    externalRepos.add(repoName);
-                }
-            });
+        try {
+            const searchQuery = `author:${GITHUB_USERNAME} type:pr`;
+            const searchResponse = await fetchWithRetry(
+                `${GITHUB_API}/search/issues?q=${encodeURIComponent(searchQuery)}&sort=updated&per_page=100`,
+                { headers }
+            );
+            const searchData = await searchResponse.json();
+            
+            if (searchData.items && Array.isArray(searchData.items)) {
+                searchData.items.forEach(pr => {
+                    const repoName = pr.repository_url.replace('https://api.github.com/repos/', '');
+                    if (!isExcludedRepo(repoName)) {
+                        externalRepos.add(repoName);
+                    }
+                });
+            }
+            console.log(`Total unique external repositories identified: ${externalRepos.size}`);
+        } catch (err) {
+            console.warn('Failed to search pull requests:', err.message);
         }
-        console.log(`Total unique external repositories identified: ${externalRepos.size}`);
 
         if (externalRepos.size === 0) {
             console.log('No external contributions found. Writing empty array to contributions.json.');
@@ -98,31 +132,44 @@ async function updateContributions() {
 
         // Step 3: Fetch details for each external repository
         console.log(`Fetching detailed information for ${externalRepos.size} repositories...`);
-        const reposData = [];
         
         for (const repoName of externalRepos) {
+            const key = repoName.toLowerCase();
+            const existingEntry = reposMap.get(key);
             try {
                 console.log(`Fetching: ${repoName}`);
                 const response = await fetchWithRetry(`${GITHUB_API}/repos/${repoName}`, { headers });
                 const repoInfo = await response.json();
                 
+                // Exclude if redirected/renamed to an excluded org
+                if (repoInfo.full_name && isExcludedRepo(repoInfo.full_name)) {
+                    reposMap.delete(key);
+                    continue;
+                }
+
                 // Only store necessary fields to keep JSON file small
-                reposData.push({
-                    full_name: repoInfo.full_name,
-                    html_url: repoInfo.html_url,
-                    description: repoInfo.description,
-                    language: repoInfo.language,
-                    stargazers_count: repoInfo.stargazers_count,
-                    forks_count: repoInfo.forks_count,
-                    updated_at: repoInfo.updated_at
+                reposMap.set(key, {
+                    full_name: repoInfo.full_name || repoName,
+                    html_url: repoInfo.html_url || `https://github.com/${repoName}`,
+                    description: repoInfo.description !== undefined ? repoInfo.description : (existingEntry?.description || null),
+                    language: repoInfo.language || existingEntry?.language || null,
+                    stargazers_count: typeof repoInfo.stargazers_count === 'number' ? repoInfo.stargazers_count : (existingEntry?.stargazers_count || 0),
+                    forks_count: typeof repoInfo.forks_count === 'number' ? repoInfo.forks_count : (existingEntry?.forks_count || 0),
+                    updated_at: repoInfo.updated_at || existingEntry?.updated_at || new Date().toISOString()
                 });
             } catch (error) {
                 console.error(`Failed to fetch details for ${repoName}:`, error.message);
+                if (existingEntry) {
+                    console.log(`Retaining existing data for ${repoName}`);
+                    reposMap.set(key, existingEntry);
+                }
             }
         }
 
+        const reposData = Array.from(reposMap.values());
+
         // Sort by stargazers count descending
-        reposData.sort((a, b) => b.stargazers_count - a.stargazers_count);
+        reposData.sort((a, b) => (b.stargazers_count || 0) - (a.stargazers_count || 0));
 
         // Write to output file
         fs.writeFileSync(OUTPUT_FILE, JSON.stringify(reposData, null, 2));
