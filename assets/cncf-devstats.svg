@@ -39,7 +39,7 @@
       </svg>
     </svg>
     <text x="30" y="8" class="text">DevStats Score</text>
-    <text x="200" y="8" class="text">227</text>
+    <text x="200" y="8" class="text">233</text>
   </g>
   <g class="stagger" style="animation-delay: 400ms" transform="translate(20, 106)">
 <!--PR Icon-->
@@ -52,7 +52,7 @@
       </svg>
     </svg>
     <text x="30" y="8" class="text">Pull Requests</text>
-    <text x="200" y="8" class="text">10</text>
+    <text x="200" y="8" class="text">11</text>
   </g>
   <g class="stagger" style="animation-delay: 600ms" transform="translate(20, 142)">
 <!--Issue Icon-->
