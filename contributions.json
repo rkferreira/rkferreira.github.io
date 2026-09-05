@@ -4,45 +4,45 @@
     "html_url": "https://github.com/hoppscotch/hoppscotch",
     "description": "Open-Source API Development Ecosystem • https://hoppscotch.io • Offline, On-Prem & Cloud • Web, Desktop & CLI • Open-Source Alternative to Postman, Insomnia",
     "language": "TypeScript",
-    "stargazers_count": 80146,
-    "forks_count": 6069,
-    "updated_at": "2026-09-02T03:08:33Z"
+    "stargazers_count": 80204,
+    "forks_count": 6083,
+    "updated_at": "2026-09-05T02:29:20Z"
   },
   {
     "full_name": "runatlantis/atlantis",
     "html_url": "https://github.com/runatlantis/atlantis",
     "description": "Terraform Pull Request Automation",
     "language": "Go",
-    "stargazers_count": 9272,
-    "forks_count": 1333,
-    "updated_at": "2026-09-02T01:53:42Z"
+    "stargazers_count": 9280,
+    "forks_count": 1335,
+    "updated_at": "2026-09-05T02:26:10Z"
   },
   {
     "full_name": "kubernetes-sigs/external-dns",
     "html_url": "https://github.com/kubernetes-sigs/external-dns",
     "description": "Configure external DNS servers dynamically from Kubernetes resources",
     "language": "Go",
-    "stargazers_count": 9076,
-    "forks_count": 2925,
-    "updated_at": "2026-09-01T20:20:35Z"
+    "stargazers_count": 9081,
+    "forks_count": 2929,
+    "updated_at": "2026-09-04T11:56:46Z"
   },
   {
     "full_name": "external-secrets/external-secrets",
     "html_url": "https://github.com/external-secrets/external-secrets",
     "description": "External Secrets Operator reads information from a third-party service like AWS Secrets Manager and automatically injects the values as Kubernetes Secrets.",
     "language": "Go",
-    "stargazers_count": 6825,
-    "forks_count": 1406,
-    "updated_at": "2026-09-01T14:31:28Z"
+    "stargazers_count": 6835,
+    "forks_count": 1409,
+    "updated_at": "2026-09-04T20:16:46Z"
   },
   {
     "full_name": "grafana/mimir",
     "html_url": "https://github.com/grafana/mimir",
     "description": "Grafana Mimir provides horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus.",
     "language": "Go",
-    "stargazers_count": 5219,
-    "forks_count": 830,
-    "updated_at": "2026-09-02T02:34:10Z"
+    "stargazers_count": 5222,
+    "forks_count": 832,
+    "updated_at": "2026-09-04T21:14:19Z"
   },
   {
     "full_name": "percona/percona-helm-charts",
@@ -50,8 +50,8 @@
     "description": "Collection of Helm charts for Percona Kubernetes Operators.",
     "language": "Mustache",
     "stargazers_count": 165,
-    "forks_count": 204,
-    "updated_at": "2026-08-26T14:31:13Z"
+    "forks_count": 206,
+    "updated_at": "2026-09-04T11:23:02Z"
   },
   {
     "full_name": "Netflix/conductor-community",
@@ -69,6 +69,6 @@
     "language": "TypeScript",
     "stargazers_count": 19,
     "forks_count": 63,
-    "updated_at": "2026-09-01T20:07:04Z"
+    "updated_at": "2026-09-04T22:07:43Z"
   }
 ]
