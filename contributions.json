@@ -4,45 +4,45 @@
     "html_url": "https://github.com/hoppscotch/hoppscotch",
     "description": "Open-Source API Development Ecosystem • https://hoppscotch.io • Offline, On-Prem & Cloud • Web, Desktop & CLI • Open-Source Alternative to Postman, Insomnia",
     "language": "TypeScript",
-    "stargazers_count": 80204,
-    "forks_count": 6083,
-    "updated_at": "2026-09-05T02:29:20Z"
+    "stargazers_count": 80252,
+    "forks_count": 6094,
+    "updated_at": "2026-09-09T03:29:49Z"
   },
   {
     "full_name": "runatlantis/atlantis",
     "html_url": "https://github.com/runatlantis/atlantis",
     "description": "Terraform Pull Request Automation",
     "language": "Go",
-    "stargazers_count": 9280,
+    "stargazers_count": 9282,
     "forks_count": 1335,
-    "updated_at": "2026-09-05T02:26:10Z"
+    "updated_at": "2026-09-09T00:57:36Z"
   },
   {
     "full_name": "kubernetes-sigs/external-dns",
     "html_url": "https://github.com/kubernetes-sigs/external-dns",
     "description": "Configure external DNS servers dynamically from Kubernetes resources",
     "language": "Go",
-    "stargazers_count": 9081,
-    "forks_count": 2929,
-    "updated_at": "2026-09-04T11:56:46Z"
+    "stargazers_count": 9085,
+    "forks_count": 2934,
+    "updated_at": "2026-09-08T21:06:18Z"
   },
   {
     "full_name": "external-secrets/external-secrets",
     "html_url": "https://github.com/external-secrets/external-secrets",
     "description": "External Secrets Operator reads information from a third-party service like AWS Secrets Manager and automatically injects the values as Kubernetes Secrets.",
     "language": "Go",
-    "stargazers_count": 6835,
-    "forks_count": 1409,
-    "updated_at": "2026-09-04T20:16:46Z"
+    "stargazers_count": 6841,
+    "forks_count": 1420,
+    "updated_at": "2026-09-08T19:52:30Z"
   },
   {
     "full_name": "grafana/mimir",
     "html_url": "https://github.com/grafana/mimir",
     "description": "Grafana Mimir provides horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus.",
     "language": "Go",
-    "stargazers_count": 5222,
-    "forks_count": 832,
-    "updated_at": "2026-09-04T21:14:19Z"
+    "stargazers_count": 5224,
+    "forks_count": 834,
+    "updated_at": "2026-09-08T21:33:39Z"
   },
   {
     "full_name": "percona/percona-helm-charts",
@@ -50,8 +50,8 @@
     "description": "Collection of Helm charts for Percona Kubernetes Operators.",
     "language": "Mustache",
     "stargazers_count": 165,
-    "forks_count": 206,
-    "updated_at": "2026-09-04T11:23:02Z"
+    "forks_count": 207,
+    "updated_at": "2026-09-07T18:47:59Z"
   },
   {
     "full_name": "Netflix/conductor-community",
@@ -67,8 +67,8 @@
     "html_url": "https://github.com/kagent-dev/website",
     "description": "kagent and kMCP website and documentation | Join Discord: https://bit.ly/kagentdiscord",
     "language": "TypeScript",
-    "stargazers_count": 19,
+    "stargazers_count": 20,
     "forks_count": 63,
-    "updated_at": "2026-09-04T22:07:43Z"
+    "updated_at": "2026-09-06T18:45:09Z"
   }
 ]
