@@ -4,18 +4,27 @@
     "html_url": "https://github.com/hoppscotch/hoppscotch",
     "description": "Open-Source API Development Ecosystem • https://hoppscotch.io • Offline, On-Prem & Cloud • Web, Desktop & CLI • Open-Source Alternative to Postman, Insomnia",
     "language": "TypeScript",
-    "stargazers_count": 80300,
-    "forks_count": 6104,
-    "updated_at": "2026-09-13T15:21:28Z"
+    "stargazers_count": 80304,
+    "forks_count": 6106,
+    "updated_at": "2026-09-14T16:49:32Z"
+  },
+  {
+    "full_name": "argoproj/argo-cd",
+    "html_url": "https://github.com/argoproj/argo-cd",
+    "description": "Declarative Continuous Deployment for Kubernetes",
+    "language": "Go",
+    "stargazers_count": 24159,
+    "forks_count": 7845,
+    "updated_at": "2026-09-14T21:17:53Z"
   },
   {
     "full_name": "runatlantis/atlantis",
     "html_url": "https://github.com/runatlantis/atlantis",
     "description": "Terraform Pull Request Automation",
     "language": "Go",
-    "stargazers_count": 9287,
+    "stargazers_count": 9288,
     "forks_count": 1340,
-    "updated_at": "2026-09-13T08:20:18Z"
+    "updated_at": "2026-09-14T08:22:41Z"
   },
   {
     "full_name": "kubernetes-sigs/external-dns",
@@ -24,16 +33,16 @@
     "language": "Go",
     "stargazers_count": 9088,
     "forks_count": 2931,
-    "updated_at": "2026-09-13T12:21:20Z"
+    "updated_at": "2026-09-14T13:56:57Z"
   },
   {
     "full_name": "external-secrets/external-secrets",
     "html_url": "https://github.com/external-secrets/external-secrets",
     "description": "External Secrets Operator reads information from a third-party service like AWS Secrets Manager and automatically injects the values as Kubernetes Secrets.",
     "language": "Go",
-    "stargazers_count": 6853,
-    "forks_count": 1423,
-    "updated_at": "2026-09-13T18:49:15Z"
+    "stargazers_count": 6855,
+    "forks_count": 1426,
+    "updated_at": "2026-09-14T18:40:22Z"
   },
   {
     "full_name": "grafana/mimir",
@@ -41,8 +50,8 @@
     "description": "Grafana Mimir provides horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus.",
     "language": "Go",
     "stargazers_count": 5233,
-    "forks_count": 834,
-    "updated_at": "2026-09-13T13:10:47Z"
+    "forks_count": 835,
+    "updated_at": "2026-09-14T12:21:24Z"
   },
   {
     "full_name": "percona/percona-helm-charts",
