@@ -1,5 +1,14 @@
 [
   {
+    "id": "4438e4be-9a9f-4403-9daa-02d89a8d0bf4",
+    "name": "API Security Fundamentals '25 (2 hours)",
+    "issuer": "APIsec University",
+    "issued_at_date": "2026-09-21",
+    "expires_at_date": null,
+    "image_url": "https://images.credly.com/images/d7840f4d-0217-4aa4-8cf4-e8bea30aef52/blob",
+    "badge_url": "https://www.credly.com/badges/4438e4be-9a9f-4403-9daa-02d89a8d0bf4"
+  },
+  {
     "id": "f17f8f6c-3ffd-479c-a6e9-6bc4ce0e15dd",
     "name": "LFD103: A Beginner's Guide to Linux Kernel Development",
     "issuer": "The Linux Foundation",
@@ -34,6 +43,15 @@
     "expires_at_date": null,
     "image_url": "https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png",
     "badge_url": "https://www.credly.com/badges/4b2f3e16-edca-4b71-949f-b789ff893773"
+  },
+  {
+    "id": "d6f49c85-f1c3-462b-a578-fcdfd3b774a8",
+    "name": "Associate Cloud Engineer Certification",
+    "issuer": "Google Cloud",
+    "issued_at_date": "2020-06-29",
+    "expires_at_date": "2023-06-29",
+    "image_url": "https://images.credly.com/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png",
+    "badge_url": "https://www.credly.com/badges/d6f49c85-f1c3-462b-a578-fcdfd3b774a8"
   },
   {
     "id": "3646dc2d-c4e4-4a6f-89c0-371cdd49b5cf",
