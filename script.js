@@ -33,7 +33,7 @@ async function fetchContributions() {
     // Attempt to load from build-time static JSON cache first
     try {
         contributionsInfo.textContent = 'Loading contributions...';
-        const response = await fetch('./contributions.json');
+        const response = await fetch('./contributions.json?t=' + Date.now(), { cache: 'no-cache' });
         if (response.ok) {
             const rawRepos = await response.json();
             if (Array.isArray(rawRepos)) {
@@ -272,7 +272,7 @@ async function fetchCertifications() {
     // 1. Attempt to load from build-time static certifications.json
     try {
         if (certsInfo) certsInfo.textContent = 'Loading certifications...';
-        const response = await fetch('./certifications.json');
+        const response = await fetch('./certifications.json?t=' + Date.now(), { cache: 'no-cache' });
         if (response.ok) {
             const certs = await response.json();
             if (Array.isArray(certs) && certs.length > 0) {
