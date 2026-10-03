@@ -1,5 +1,14 @@
 [
   {
+    "id": "72c9bd4d-e1f7-452d-8b7a-570db6da5071",
+    "name": "Academy Accreditation - AI Agent Fundamentals",
+    "issuer": "Databricks Academy",
+    "issued_at_date": "2026-10-03",
+    "expires_at_date": null,
+    "image_url": "https://images.credential.net/design/d4176847-c7b0-4730-8145-5a9d4235239f_703c1fa0e18bc87e17f8309f31040c7778533b8f90067c44739394564b3085c8.png",
+    "badge_url": "https://credentials.databricks.com/72c9bd4d-e1f7-452d-8b7a-570db6da5071"
+  },
+  {
     "id": "4438e4be-9a9f-4403-9daa-02d89a8d0bf4",
     "name": "API Security Fundamentals '25 (2 hours)",
     "issuer": "APIsec University",
@@ -18,33 +27,6 @@
     "badge_url": "https://www.credly.com/badges/f17f8f6c-3ffd-479c-a6e9-6bc4ce0e15dd"
   },
   {
-    "id": "883e7e6b-b1e3-47bd-a197-be1b0cee283f",
-    "name": "VMware vSphere 6.7 Foundations",
-    "issuer": "Broadcom",
-    "issued_at_date": "2020-06-18",
-    "expires_at_date": null,
-    "image_url": "https://images.credly.com/images/b326f151-7abd-4645-b0f9-c4385bcc9d4b/vmware_KN_vSphere6.7F.png",
-    "badge_url": "https://www.credly.com/badges/883e7e6b-b1e3-47bd-a197-be1b0cee283f"
-  },
-  {
-    "id": "7fca9c0d-db14-4000-a47b-286bfebc550f",
-    "name": "AZ-300 Microsoft Azure Architect Technologies",
-    "issuer": "Microsoft",
-    "issued_at_date": "2019-07-03",
-    "expires_at_date": null,
-    "image_url": "https://images.credly.com/images/c66ddfa8-4e9d-41e4-bf98-244a4d55a14e/exam-az300-600x600.png",
-    "badge_url": "https://www.credly.com/badges/7fca9c0d-db14-4000-a47b-286bfebc550f"
-  },
-  {
-    "id": "4b2f3e16-edca-4b71-949f-b789ff893773",
-    "name": "Microsoft Certified: Azure Fundamentals",
-    "issuer": "Microsoft",
-    "issued_at_date": "2019-04-29",
-    "expires_at_date": null,
-    "image_url": "https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png",
-    "badge_url": "https://www.credly.com/badges/4b2f3e16-edca-4b71-949f-b789ff893773"
-  },
-  {
     "id": "d6f49c85-f1c3-462b-a578-fcdfd3b774a8",
     "name": "Associate Cloud Engineer Certification",
     "issuer": "Google Cloud",
@@ -54,13 +36,40 @@
     "badge_url": "https://www.credly.com/badges/d6f49c85-f1c3-462b-a578-fcdfd3b774a8"
   },
   {
-    "id": "3646dc2d-c4e4-4a6f-89c0-371cdd49b5cf",
-    "name": "AWS Certified Cloud Practitioner",
-    "issuer": "Amazon Web Services Training and Certification",
-    "issued_at_date": "2019-04-04",
-    "expires_at_date": "2022-04-04",
-    "image_url": "https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png",
-    "badge_url": "https://www.credly.com/badges/3646dc2d-c4e4-4a6f-89c0-371cdd49b5cf"
+    "id": "883e7e6b-b1e3-47bd-a197-be1b0cee283f",
+    "name": "VMware vSphere 6.7 Foundations",
+    "issuer": "Broadcom",
+    "issued_at_date": "2020-06-18",
+    "expires_at_date": null,
+    "image_url": "https://images.credly.com/images/b326f151-7abd-4645-b0f9-c4385bcc9d4b/vmware_KN_vSphere6.7F.png",
+    "badge_url": "https://www.credly.com/badges/883e7e6b-b1e3-47bd-a197-be1b0cee283f"
+  },
+  {
+    "id": "f2f19a72-2ae0-4566-ac65-7407eb9df829",
+    "name": "Oracle Cloud Infrastructure 2019 Certified Architect Associate",
+    "issuer": "Oracle",
+    "issued_at_date": "2020-04-18",
+    "expires_at_date": "2021-10-18",
+    "image_url": "https://images.credly.com/images/a0c90a95-7b12-4b51-a8a5-59887be2c399/08_Associate_OCI_Architect_2019.png",
+    "badge_url": "https://www.credly.com/badges/f2f19a72-2ae0-4566-ac65-7407eb9df829"
+  },
+  {
+    "id": "eaff2a96-9fcc-4eb5-b8d3-8bc6d5869208",
+    "name": "Oracle Cloud Infrastructure Foundations 2020 Certified Associate",
+    "issuer": "Oracle",
+    "issued_at_date": "2020-04-07",
+    "expires_at_date": "2021-10-07",
+    "image_url": "https://images.credly.com/images/697cf123-74b0-4356-9055-9973471d26d6/03_Oracle_Cloud_Infrastructure_Foundations_Associate.png",
+    "badge_url": "https://www.credly.com/badges/eaff2a96-9fcc-4eb5-b8d3-8bc6d5869208"
+  },
+  {
+    "id": "7fca9c0d-db14-4000-a47b-286bfebc550f",
+    "name": "AZ-300 Microsoft Azure Architect Technologies",
+    "issuer": "Microsoft",
+    "issued_at_date": "2019-07-03",
+    "expires_at_date": null,
+    "image_url": "https://images.credly.com/images/c66ddfa8-4e9d-41e4-bf98-244a4d55a14e/exam-az300-600x600.png",
+    "badge_url": "https://www.credly.com/badges/7fca9c0d-db14-4000-a47b-286bfebc550f"
   },
   {
     "id": "ac148ee5-b379-4f4e-bc12-9bddf9a210bd",
@@ -81,6 +90,24 @@
     "badge_url": "https://www.credly.com/badges/a9efdd6e-583e-4e78-aac4-be531e3f5236"
   },
   {
+    "id": "4b2f3e16-edca-4b71-949f-b789ff893773",
+    "name": "Microsoft Certified: Azure Fundamentals",
+    "issuer": "Microsoft",
+    "issued_at_date": "2019-04-29",
+    "expires_at_date": null,
+    "image_url": "https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png",
+    "badge_url": "https://www.credly.com/badges/4b2f3e16-edca-4b71-949f-b789ff893773"
+  },
+  {
+    "id": "3646dc2d-c4e4-4a6f-89c0-371cdd49b5cf",
+    "name": "AWS Certified Cloud Practitioner",
+    "issuer": "Amazon Web Services Training and Certification",
+    "issued_at_date": "2019-04-04",
+    "expires_at_date": "2022-04-04",
+    "image_url": "https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png",
+    "badge_url": "https://www.credly.com/badges/3646dc2d-c4e4-4a6f-89c0-371cdd49b5cf"
+  },
+  {
     "id": "22c6af1a-51d8-42c4-bbee-c87e84019eca",
     "name": "AWS Certified SysOps Administrator – Associate",
     "issuer": "Amazon Web Services Training and Certification",
@@ -88,24 +115,6 @@
     "expires_at_date": "2021-12-03",
     "image_url": "https://images.credly.com/images/f0d3fbb9-bfa7-4017-9989-7bde8eaf42b1/image.png",
     "badge_url": "https://www.credly.com/badges/22c6af1a-51d8-42c4-bbee-c87e84019eca"
-  },
-  {
-    "id": "f2f19a72-2ae0-4566-ac65-7407eb9df829",
-    "name": "Oracle Cloud Infrastructure 2019 Certified Architect Associate",
-    "issuer": "Oracle",
-    "issued_at_date": "2020-04-18",
-    "expires_at_date": "2021-10-18",
-    "image_url": "https://images.credly.com/images/a0c90a95-7b12-4b51-a8a5-59887be2c399/08_Associate_OCI_Architect_2019.png",
-    "badge_url": "https://www.credly.com/badges/f2f19a72-2ae0-4566-ac65-7407eb9df829"
-  },
-  {
-    "id": "eaff2a96-9fcc-4eb5-b8d3-8bc6d5869208",
-    "name": "Oracle Cloud Infrastructure Foundations 2020 Certified Associate",
-    "issuer": "Oracle",
-    "issued_at_date": "2020-04-07",
-    "expires_at_date": "2021-10-07",
-    "image_url": "https://images.credly.com/images/697cf123-74b0-4356-9055-9973471d26d6/03_Oracle_Cloud_Infrastructure_Foundations_Associate.png",
-    "badge_url": "https://www.credly.com/badges/eaff2a96-9fcc-4eb5-b8d3-8bc6d5869208"
   },
   {
     "id": "f3a49f9f-43ef-4928-9a24-0907700a5f9c",

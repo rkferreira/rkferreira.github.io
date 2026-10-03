@@ -349,7 +349,7 @@ async function fetchCertifications() {
     }
 
     if (certsInfo) {
-        certsInfo.innerHTML = `<i class="fas fa-exclamation-circle"></i> Unable to load certifications right now. <a href="https://www.credly.com/users/rodkf/badges" target="_blank" rel="noopener noreferrer">View badges directly on Credly</a>.`;
+        certsInfo.innerHTML = `<i class="fas fa-exclamation-circle"></i> Unable to load certifications right now. <a href="https://www.credly.com/users/rodkf/badges" target="_blank" rel="noopener noreferrer">View on Credly</a> or <a href="https://credentials.databricks.com/profile/rodrigokellermannferreira655756/wallet" target="_blank" rel="noopener noreferrer">Databricks Wallet</a>.`;
     }
 }
 
@@ -360,7 +360,7 @@ function renderCertifications(certs, certsInfo, certsList, source) {
         if (source === 'expired') {
             badgeNote = ' <span class="cache-badge" style="font-size: 0.8em; color: #e0a800; background: rgba(224, 168, 0, 0.1); padding: 2px 6px; border-radius: 4px; margin-left: 8px;"><i class="fas fa-history"></i> cached</span>';
         }
-        certsInfo.innerHTML = `<i class="fas fa-award"></i> <strong>${certs.length}</strong> verified certifications and digital credentials issued via Credly.${badgeNote}`;
+        certsInfo.innerHTML = `<i class="fas fa-award"></i> <strong>${certs.length}</strong> verified certifications and digital credentials issued via Credly & Databricks.${badgeNote}`;
     }
 
     certsList.innerHTML = certs.map(cert => createCertificationCard(cert)).join('');
@@ -390,7 +390,7 @@ function createCertificationCard(cert) {
     return `
         <div class="cert-card">
             <div class="cert-image-wrapper">
-                <a href="${badgeUrl}" target="_blank" rel="noopener noreferrer" title="Verify ${escapeHtml(name)} on Credly">
+                <a href="${badgeUrl}" target="_blank" rel="noopener noreferrer" title="Verify ${escapeHtml(name)} (${escapeHtml(issuer)})">
                     <img src="${image}" alt="${escapeHtml(name)}" class="cert-badge-img" loading="lazy">
                 </a>
             </div>
