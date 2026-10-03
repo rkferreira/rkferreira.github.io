@@ -1,8 +1,12 @@
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const GITHUB_USERNAME = 'rkferreira';
 const GITHUB_API = 'https://api.github.com';
+const DATABRICKS_USERNAME = 'rodrigokellermannferreira655756';
+const ACCREDIBLE_API = 'https://api.accredible.com';
+const ACCREDIBLE_KEY = 'chtM@CyP_.7iF.kuQXBv';
 const OUTPUT_FILE = path.join(__dirname, '../../contributions.json');
 const OUTPUT_CERTS_FILE = path.join(__dirname, '../../certifications.json');
 
@@ -181,44 +185,136 @@ async function updateContributions() {
     }
 }
 
-async function updateCertifications() {
+async function fetchDatabricksBadges() {
     try {
-        console.log('Fetching certifications from Credly API...');
-        const response = await fetch('https://www.credly.com/users/rodkf/badges.json', {
+        console.log('Fetching credentials from Databricks Accredible API...');
+        const path = `/v1/credential-net/users/${DATABRICKS_USERNAME}/user_wallet`;
+        const timestamp = Math.floor(Date.now() / 1000).toString();
+        const stringToSign = `GET ${path.split('?')[0]} HTTP/1.1 ${timestamp}`;
+        const signature = crypto.createHmac('sha256', ACCREDIBLE_KEY).update(stringToSign).digest('hex');
+
+        const response = await fetch(`${ACCREDIBLE_API}${path}`, {
             headers: {
-                'User-Agent': 'rkferreira-portfolio-updater',
-                'Accept': 'application/json'
+                'X-Signature': signature,
+                'X-Timestamp': timestamp,
+                'Accept': 'application/json',
+                'User-Agent': 'rkferreira-portfolio-updater'
             }
         });
 
-        if (response.ok) {
-            const rawData = await response.json();
-            const badges = rawData.data || [];
-            const outputList = badges.map(b => {
-                const tmpl = b.badge_template || {};
-                let issuerName = tmpl.issuer?.summary || (tmpl.issuer?.entities?.[0]?.entity?.name) || 'Credly';
-                if (issuerName.startsWith('issued by ')) {
-                    issuerName = issuerName.substring(10);
+        if (!response.ok) {
+            console.warn(`Databricks API returned status ${response.status}.`);
+            return [];
+        }
+
+        const data = await response.json();
+        const credentials = data?.data?.credentials || [];
+        const result = [];
+
+        for (const c of credentials) {
+            let imageUrl = '';
+            if (c.group?.badge_design?.rasterized_content_url) {
+                const rasterUrl = c.group.badge_design.rasterized_content_url;
+                try {
+                    const redirectRes = await fetch(rasterUrl, { redirect: 'manual' });
+                    const location = redirectRes.headers.get('location');
+                    imageUrl = location || rasterUrl;
+                } catch (e) {
+                    imageUrl = rasterUrl;
                 }
-                return {
-                    id: b.id,
-                    name: tmpl.name,
-                    issuer: issuerName,
-                    issued_at_date: b.issued_at_date,
-                    expires_at_date: b.expires_at_date,
-                    image_url: tmpl.image_url,
-                    badge_url: `https://www.credly.com/badges/${b.id}`
-                };
+            } else if (c.id) {
+                imageUrl = `https://api.accredible.com/v1/credential/generate_baked_badge?credential_id=${c.id}`;
+            }
+
+            result.push({
+                id: c.uuid || String(c.id),
+                name: c.name,
+                issuer: c.issuer?.name || 'Databricks Academy',
+                issued_at_date: c.issued_on,
+                expires_at_date: c.expired_on || null,
+                image_url: imageUrl,
+                badge_url: c.url || `https://credentials.databricks.com/${c.uuid}`
+            });
+        }
+
+        console.log(`Fetched ${result.length} badges from Databricks.`);
+        return result;
+    } catch (err) {
+        console.error('Error fetching Databricks badges:', err.message);
+        return [];
+    }
+}
+
+async function updateCertifications() {
+    try {
+        const certsMap = new Map();
+
+        // Step 0: Load existing certifications to prevent data loss
+        if (fs.existsSync(OUTPUT_CERTS_FILE)) {
+            try {
+                const existing = JSON.parse(fs.readFileSync(OUTPUT_CERTS_FILE, 'utf8'));
+                if (Array.isArray(existing)) {
+                    for (const cert of existing) {
+                        if (cert && cert.id) {
+                            certsMap.set(String(cert.id), cert);
+                        }
+                    }
+                }
+            } catch (err) {
+                console.warn('Could not parse existing certifications.json:', err.message);
+            }
+        }
+
+        // Step 1: Fetch Credly badges
+        console.log('Fetching certifications from Credly API...');
+        try {
+            const response = await fetch('https://www.credly.com/users/rodkf/badges.json', {
+                headers: {
+                    'User-Agent': 'rkferreira-portfolio-updater',
+                    'Accept': 'application/json'
+                }
             });
 
-            fs.writeFileSync(OUTPUT_CERTS_FILE, JSON.stringify(outputList, null, 2));
-            console.log(`Successfully updated ${OUTPUT_CERTS_FILE} with ${outputList.length} certifications.`);
-        } else {
-            console.warn(`Credly API returned status ${response.status}. Keeping existing certifications.json.`);
+            if (response.ok) {
+                const rawData = await response.json();
+                const badges = rawData.data || [];
+                badges.forEach(b => {
+                    const tmpl = b.badge_template || {};
+                    let issuerName = tmpl.issuer?.summary || (tmpl.issuer?.entities?.[0]?.entity?.name) || 'Credly';
+                    if (issuerName.startsWith('issued by ')) {
+                        issuerName = issuerName.substring(10);
+                    }
+                    certsMap.set(String(b.id), {
+                        id: b.id,
+                        name: tmpl.name,
+                        issuer: issuerName,
+                        issued_at_date: b.issued_at_date,
+                        expires_at_date: b.expires_at_date,
+                        image_url: tmpl.image_url,
+                        badge_url: `https://www.credly.com/badges/${b.id}`
+                    });
+                });
+                console.log(`Loaded ${badges.length} badges from Credly.`);
+            } else {
+                console.warn(`Credly API returned status ${response.status}.`);
+            }
+        } catch (error) {
+            console.error('Error fetching Credly badges:', error.message);
         }
+
+        // Step 2: Fetch Databricks badges
+        const databricksBadges = await fetchDatabricksBadges();
+        databricksBadges.forEach(b => {
+            certsMap.set(String(b.id), b);
+        });
+
+        const combinedList = Array.from(certsMap.values());
+        combinedList.sort((a, b) => new Date(b.issued_at_date || 0) - new Date(a.issued_at_date || 0));
+
+        fs.writeFileSync(OUTPUT_CERTS_FILE, JSON.stringify(combinedList, null, 2));
+        console.log(`Successfully updated ${OUTPUT_CERTS_FILE} with ${combinedList.length} certifications.`);
     } catch (error) {
         console.error('Error updating certifications:', error.message);
-        // Do not crash main process if Credly API fails
     }
 }
 
