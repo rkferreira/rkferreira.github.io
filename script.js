@@ -220,6 +220,7 @@ function renderContributions(validRepos, contributionsInfo, contributionsList, s
 
 // Create HTML for a contribution card
 function createContributionCard(repo) {
+    const isExternalSecrets = repo.full_name && repo.full_name.toLowerCase() === 'external-secrets/external-secrets';
     const description = repo.description || 'No description available';
     const language = repo.language || 'Unknown';
     const stars = repo.stargazers_count || 0;
@@ -230,14 +231,26 @@ function createContributionCard(repo) {
         day: 'numeric'
     });
     
+    const roleBadgeHtml = isExternalSecrets ? `
+        <div class="repo-badge-container">
+            <span class="role-badge maintainer-badge">
+                <i class="fas fa-shield-alt"></i> Creator & Maintainer (Barbican)
+            </span>
+            <a href="https://external-secrets.io/latest/introduction/stability-support/" target="_blank" rel="noopener noreferrer" class="repo-doc-link" title="External Secrets Stability & Support">
+                <i class="fas fa-external-link-alt"></i> Stability & Support Docs
+            </a>
+        </div>
+    ` : '';
+
     return `
-        <div class="contribution-card">
+        <div class="contribution-card${isExternalSecrets ? ' featured-contribution' : ''}">
             <h3>
                 <i class="fab fa-github"></i>
                 <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
                     ${repo.full_name}
                 </a>
             </h3>
+            ${roleBadgeHtml}
             <p>${escapeHtml(description)}</p>
             <div class="repo-stats">
                 <span class="stat">

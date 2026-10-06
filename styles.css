@@ -130,6 +130,18 @@ section h2 i {
     margin-bottom: 15px;
 }
 
+.about-content a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.about-content a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
 /* Stats Section */
 .stats-grid {
     display: grid;
@@ -430,6 +442,55 @@ section h2 i {
     align-items: center;
     gap: 5px;
     color: var(--text-secondary);
+}
+
+.contribution-card.featured-contribution {
+    border-color: rgba(56, 139, 253, 0.45);
+    background: linear-gradient(180deg, rgba(56, 139, 253, 0.05) 0%, var(--bg-tertiary) 100%);
+    box-shadow: 0 4px 16px rgba(56, 139, 253, 0.08);
+}
+
+.repo-badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0 12px 0;
+}
+
+.role-badge.maintainer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(56, 139, 253, 0.15);
+    color: #58a6ff;
+    border: 1px solid rgba(56, 139, 253, 0.4);
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.repo-doc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(63, 185, 80, 0.12);
+    color: #3fb950;
+    border: 1px solid rgba(63, 185, 80, 0.35);
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.repo-doc-link:hover {
+    background: rgba(63, 185, 80, 0.22);
+    color: #56d364;
+    border-color: rgba(63, 185, 80, 0.5);
+    transform: translateY(-1px);
 }
 
 .contribution-card .stat i {
