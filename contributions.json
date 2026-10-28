@@ -4,54 +4,54 @@
     "html_url": "https://github.com/hoppscotch/hoppscotch",
     "description": "Open-Source API Development Ecosystem • https://hoppscotch.io • Offline, On-Prem & Cloud • Web, Desktop & CLI • Open-Source Alternative to Postman, Insomnia",
     "language": "TypeScript",
-    "stargazers_count": 80677,
-    "forks_count": 6178,
-    "updated_at": "2026-10-23T22:54:59Z"
+    "stargazers_count": 80701,
+    "forks_count": 6189,
+    "updated_at": "2026-10-28T01:41:17Z"
   },
   {
     "full_name": "argoproj/argo-cd",
     "html_url": "https://github.com/argoproj/argo-cd",
     "description": "Declarative Continuous Deployment for Kubernetes",
     "language": "Go",
-    "stargazers_count": 24458,
-    "forks_count": 7967,
-    "updated_at": "2026-10-23T23:48:02Z"
+    "stargazers_count": 24494,
+    "forks_count": 8027,
+    "updated_at": "2026-10-28T04:18:42Z"
   },
   {
     "full_name": "runatlantis/atlantis",
     "html_url": "https://github.com/runatlantis/atlantis",
     "description": "Terraform Pull Request Automation",
     "language": "Go",
-    "stargazers_count": 9333,
-    "forks_count": 1359,
-    "updated_at": "2026-10-23T07:05:38Z"
+    "stargazers_count": 9335,
+    "forks_count": 1360,
+    "updated_at": "2026-10-27T23:49:34Z"
   },
   {
     "full_name": "kubernetes-sigs/external-dns",
     "html_url": "https://github.com/kubernetes-sigs/external-dns",
     "description": "Configure external DNS servers dynamically from Kubernetes resources",
     "language": "Go",
-    "stargazers_count": 9134,
-    "forks_count": 2946,
-    "updated_at": "2026-10-23T22:59:40Z"
+    "stargazers_count": 9138,
+    "forks_count": 2947,
+    "updated_at": "2026-10-27T20:43:46Z"
   },
   {
     "full_name": "external-secrets/external-secrets",
     "html_url": "https://github.com/external-secrets/external-secrets",
     "description": "External Secrets Operator reads information from a third-party service like AWS Secrets Manager and automatically injects the values as Kubernetes Secrets.",
     "language": "Go",
-    "stargazers_count": 6919,
-    "forks_count": 1472,
-    "updated_at": "2026-10-23T18:43:22Z"
+    "stargazers_count": 6926,
+    "forks_count": 1471,
+    "updated_at": "2026-10-28T04:15:38Z"
   },
   {
     "full_name": "grafana/mimir",
     "html_url": "https://github.com/grafana/mimir",
     "description": "Grafana Mimir provides horizontally scalable, highly available, multi-tenant, long-term storage for Prometheus.",
     "language": "Go",
-    "stargazers_count": 5260,
-    "forks_count": 856,
-    "updated_at": "2026-10-23T22:38:56Z"
+    "stargazers_count": 5264,
+    "forks_count": 858,
+    "updated_at": "2026-10-28T02:40:26Z"
   },
   {
     "full_name": "percona/percona-helm-charts",
@@ -59,7 +59,7 @@
     "description": "Collection of Helm charts for Percona Kubernetes Operators.",
     "language": "Shell",
     "stargazers_count": 166,
-    "forks_count": 206,
+    "forks_count": 208,
     "updated_at": "2026-10-22T12:18:29Z"
   },
   {
@@ -78,6 +78,6 @@
     "language": "TypeScript",
     "stargazers_count": 21,
     "forks_count": 71,
-    "updated_at": "2026-10-23T16:46:41Z"
+    "updated_at": "2026-10-27T14:16:05Z"
   }
 ]
